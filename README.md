@@ -178,6 +178,15 @@ tests/smoke.sh
 
 See [CONTRIBUTING.md](CONTRIBUTING.md).
 
+## Related
+
+Sibling tools built on the same shape: a deterministic oracle does the scoring,
+and a model is only ever allowed to write the prose.
+
+- [mole](https://github.com/defi0x1/mole) -- plants plausible bugs in your code and reports which ones your tests failed to catch
+- [drift-graph](https://github.com/defi0x1/drift-graph) -- snapshots your import graph and shows which architectural boundaries got crossed
+- [hindsight](https://github.com/defi0x1/hindsight) -- replays an EVM wallet's trades against what would have happened if it had done nothing
+
 ## License
 
 MIT, see [LICENSE](LICENSE).
