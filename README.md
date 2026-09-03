@@ -140,15 +140,14 @@ replaces the built-in denylist entirely — list everything you want blocked,
 not just your additions. `--deny` on the command line is always additive on
 top of whichever list applies.
 
-## Works with loop-rat
+## Running it unattended
 
-burrow is the isolation primitive a [loop-rat](https://github.com/mrbuzzoni/loop-rat)
-shift needs. loop-rat fingerprints your working tree and blocks a shift from
-writing to it directly; burrow gives that shift a worktree of its own to
-legitimately write into, with limits and a receipt instead of a bare
-rejection. They're standalone tools — burrow doesn't depend on loop-rat and
-doesn't know it exists — but the combination is: loop-rat stops agents from
-touching your tree, burrow gives them somewhere to go instead.
+burrow exists for the case where nobody is watching. It is safe to invoke
+from cron, a scheduler, or another process: runs are parallel-safe, each
+holds its own lock, a burrow whose process died is detected as stale rather
+than hanging, and the timeout kills the whole process group so orphans die
+with the run. `--json` emits the receipt for a machine to read, and the
+verdict is `ok` or `blocked` with a named reason.
 
 ## Limitations
 
